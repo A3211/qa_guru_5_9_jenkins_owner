@@ -31,7 +31,7 @@ public class TestBase {
         String user = driverConfig.remoteWebUser();
         String password = driverConfig.remoteWebPassword();
         String remoteWebDriver = System.getProperty("remote.web.driver");
-        if (remoteWebDriver != "") {
+        if (remoteWebDriver != null) {
             Configuration.remote = String.format(remoteWebDriver, user, password);
 
             System.out.println(String.format(remoteWebDriver, user, password));
