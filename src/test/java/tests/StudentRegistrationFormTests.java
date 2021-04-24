@@ -79,7 +79,7 @@ public class StudentRegistrationFormTests extends TestBase {
             });
 
             step("Submit form", () -> {
-                $("#submit1").click();
+                $("#submit").click();
             });
         });
 
