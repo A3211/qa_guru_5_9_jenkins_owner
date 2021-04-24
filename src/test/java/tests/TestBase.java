@@ -13,14 +13,15 @@ import static helpers.AttachmentHelper.*;
 public class TestBase {
     @BeforeAll
     static void setup() {
-        System.out.println(System.getProperty("a"));
-
         Configuration.startMaximized = true;
         addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
+
+        //gradle clean test -Dweb.browser=opera
+        Configuration.browser = (System.getProperty("web.browser", "chrome"));
 
         String remoteWebDriver = System.getProperty("remote.web.driver");
         if (remoteWebDriver != "") {
